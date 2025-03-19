@@ -1,4 +1,8 @@
 {
   "name": "functions",
   "version": "1.0.0",
+  "description": "Netlify functions for the website",
+  "scripts": {
+    "build": "netlify build"
+  }
 }
