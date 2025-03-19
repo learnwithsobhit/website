@@ -1,5 +1,8 @@
 document.addEventListener("DOMContentLoaded", function() {
     // Smooth scrolling for navigation links
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const messageInput = document.getElementById('message');
     const navLinks = document.querySelectorAll("nav a");
     navLinks.forEach(link => {
       link.addEventListener("click", function(e) {
@@ -15,9 +18,21 @@ document.addEventListener("DOMContentLoaded", function() {
     const contactForm = document.querySelector("form");
     if (contactForm) {
       contactForm.addEventListener("submit", function(e) {
+        const name = nameInput.value.trim();
+        const email = emailInput.value.trim();
+        const message = messageInput.value.trim();
         e.preventDefault();
-        alert("Thank you for contacting us!");
+        
+        // Send Telegram notification
+        fetch('/.netlify/functions/send-telegram', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ name, email, message })
+        });
         contactForm.reset();
+        alert("Thank you for contacting us!");
       });
     }
     
