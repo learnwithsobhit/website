@@ -26,8 +26,8 @@ document.addEventListener("DOMContentLoaded", function() {
       const message = `New contact form submission:\nName: ${name}\nEmail: ${email}\nMessage: ${userMessage}`;
       
       // Replace these with your actual Telegram bot token and chat ID
-      const token = process.env.TELEGRAM_BOT_TOKEN;
-      const chatId = process.env.TELEGRAM_CHAT_ID;
+      const token = '7534728507:AAFE4wWG_92Wd3j2fEemAUZCMF5Blz_f8vc';
+      const chatId = '988894843';
       
       // Send a POST request to Telegram API
       fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
